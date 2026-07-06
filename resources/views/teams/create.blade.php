@@ -1,57 +1,60 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Equipo - Liga de Básquetbol</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
+@extends('layouts.app')
 
-<div class="py-12">
-    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white shadow rounded-lg">
-            <div class="px-8 py-8">
-                <h1 class="text-4xl font-bold text-gray-800 mb-8">🏀 Nuevo Equipo</h1>
+@section('title', 'Nuevo Equipo')
 
-                <form action="{{ route('teams.store') }}" method="POST">
-                    @csrf
+@section('content')
+<div class="max-w-xl mx-auto">
+    <div class="mb-6">
+        <a href="{{ route('teams.index') }}" class="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 transition font-medium">
+            <i class="fas fa-arrow-left text-xs"></i> Volver a equipos
+        </a>
+        <h1 class="text-2xl font-bold text-gray-900 tracking-tight mt-2">Nuevo Equipo</h1>
+        <p class="text-gray-500 text-sm mt-1">Registra un nuevo equipo en la liga</p>
+    </div>
 
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nombre del Equipo</label>
-                        <input type="text" name="name" 
-                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                               required>
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+        <form action="{{ route('teams.store') }}" method="POST">
+            @csrf
+
+            <div class="space-y-5">
+                <div>
+                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-1.5">Nombre del Equipo</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"><i class="fas fa-users text-sm"></i></div>
+                        <input type="text" name="name" id="name" required
+                               class="input-focus w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm bg-gray-50/50 focus:bg-white"
+                               placeholder="Ej: Lakers">
                     </div>
+                </div>
 
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Ciudad</label>
-                        <input type="text" name="city" 
-                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-                               required>
+                <div>
+                    <label for="city" class="block text-sm font-semibold text-gray-700 mb-1.5">Ciudad</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"><i class="fas fa-map-marker-alt text-sm"></i></div>
+                        <input type="text" name="city" id="city" required
+                               class="input-focus w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm bg-gray-50/50 focus:bg-white"
+                               placeholder="Ej: Los Ángeles">
                     </div>
+                </div>
 
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Entrenador (opcional)</label>
-                        <input type="text" name="coach" 
-                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500">
+                <div>
+                    <label for="coach" class="block text-sm font-semibold text-gray-700 mb-1.5">Entrenador <span class="text-gray-400 font-normal">(opcional)</span></label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"><i class="fas fa-whistle text-sm"></i></div>
+                        <input type="text" name="coach" id="coach"
+                               class="input-focus w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm bg-gray-50/50 focus:bg-white"
+                               placeholder="Ej: Phil Jackson">
                     </div>
-
-                    <div class="flex gap-4">
-                        <a href="{{ route('teams.index') }}" 
-                           class="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-medium">
-                            Cancelar
-                        </a>
-                        <button type="submit" 
-                                class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium">
-                            Crear Equipo
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+
+            <div class="flex items-center gap-3 mt-8 pt-6 border-t border-gray-100">
+                <a href="{{ route('teams.index') }}" class="btn px-5 py-2.5 border border-gray-200 text-gray-700 rounded-xl text-sm font-semibold hover:bg-gray-50">Cancelar</a>
+                <button type="submit" class="btn px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-blue-800 shadow-lg shadow-blue-600/25 flex items-center gap-2">
+                    <i class="fas fa-save"></i> Crear Equipo
+                </button>
+            </div>
+        </form>
     </div>
 </div>
-
-</body>
-</html>
+@endsection

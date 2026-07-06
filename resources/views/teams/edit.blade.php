@@ -1,47 +1,60 @@
 @extends('layouts.app')
 
+@section('title', 'Editar Equipo')
+
 @section('content')
-<div class="py-8">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-4xl font-bold flex items-center gap-3"><span class="text-5xl">🏀</span> Equipos de la Liga</h1>
-            <a href="{{ route('teams.create') }}" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-medium">+ Nuevo Equipo</a>
-        </div>
+<div class="max-w-xl mx-auto">
+    <div class="mb-6">
+        <a href="{{ route('teams.index') }}" class="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 transition font-medium">
+            <i class="fas fa-arrow-left text-xs"></i> Volver a equipos
+        </a>
+        <h1 class="text-2xl font-bold text-gray-900 tracking-tight mt-2">Editar Equipo</h1>
+        <p class="text-gray-500 text-sm mt-1">Modifica los datos del equipo</p>
+    </div>
 
-        @if (session('success'))
-            <div class="bg-green-500 text-white px-6 py-4 rounded-2xl mb-6">{{ session('success') }}</div>
-        @endif
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+        <form action="{{ route('teams.update', $team) }}" method="POST">
+            @csrf @method('PUT')
 
-        <div class="bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10">
-            <table class="min-w-full">
-                <thead class="bg-white/5">
-                    <tr>
-                        <th class="px-8 py-5 text-left">Nombre</th>
-                        <th class="px-8 py-5 text-left">Ciudad</th>
-                        <th class="px-8 py-5 text-left">Entrenador</th>
-                        <th class="px-8 py-5 text-center">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($teams as $team)
-                    <tr class="border-t border-white/10 hover:bg-white/5">
-                        <td class="px-8 py-6 font-medium">{{ $team->name }}</td>
-                        <td class="px-8 py-6">{{ $team->city }}</td>
-                        <td class="px-8 py-6">{{ $team->coach ?? '—' }}</td>
-                        <td class="px-8 py-6 text-center space-x-6">
-                            <a href="{{ route('teams.edit', $team) }}" class="text-blue-400 hover:text-blue-300">Editar</a>
-                            <form action="{{ route('teams.destroy', $team) }}" method="POST" class="inline">
-                                @csrf @method('DELETE')
-                                <button onclick="return confirm('¿Eliminar?')" class="text-red-400 hover:text-red-300">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @empty
-                    <tr><td colspan="4" class="px-8 py-20 text-center text-gray-400">No hay equipos registrados</td></tr>
-                    @endempty
-                </tbody>
-            </table>
-        </div>
+            <div class="space-y-5">
+                <div>
+                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-1.5">Nombre del Equipo</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"><i class="fas fa-users text-sm"></i></div>
+                        <input type="text" name="name" id="name" value="{{ old('name', $team->name) }}" required
+                               class="input-focus w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm bg-gray-50/50 focus:bg-white"
+                               placeholder="Ej: Lakers">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="city" class="block text-sm font-semibold text-gray-700 mb-1.5">Ciudad</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"><i class="fas fa-map-marker-alt text-sm"></i></div>
+                        <input type="text" name="city" id="city" value="{{ old('city', $team->city) }}" required
+                               class="input-focus w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm bg-gray-50/50 focus:bg-white"
+                               placeholder="Ej: Los Ángeles">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="coach" class="block text-sm font-semibold text-gray-700 mb-1.5">Entrenador <span class="text-gray-400 font-normal">(opcional)</span></label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"><i class="fas fa-whistle text-sm"></i></div>
+                        <input type="text" name="coach" id="coach" value="{{ old('coach', $team->coach) }}"
+                               class="input-focus w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm bg-gray-50/50 focus:bg-white"
+                               placeholder="Ej: Phil Jackson">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 mt-8 pt-6 border-t border-gray-100">
+                <a href="{{ route('teams.index') }}" class="btn px-5 py-2.5 border border-gray-200 text-gray-700 rounded-xl text-sm font-semibold hover:bg-gray-50">Cancelar</a>
+                <button type="submit" class="btn px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl text-sm font-bold hover:from-blue-700 hover:to-blue-800 shadow-lg shadow-blue-600/25 flex items-center gap-2">
+                    <i class="fas fa-save"></i> Actualizar Equipo
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

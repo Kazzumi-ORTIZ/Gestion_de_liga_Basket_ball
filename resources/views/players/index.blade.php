@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-4xl font-bold flex items-center gap-3">
-                <span class="text-5xl">👟</span> Jugadores
+                <span class="text-5xl">👟</span> Jugadores a
             </h1>
             <a href="{{ route('players.create') }}" class="bg-green-600 hover:bg-green-700 px-8 py-4 rounded-2xl font-medium flex items-center gap-2">
                 + Nuevo Jugador

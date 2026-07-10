@@ -1,58 +1,207 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <br>
+  <img src="https://img.shields.io/badge/Laravel-13.8-F9322C?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+  <img src="https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  <br><br>
+  <h1>🏀 Gestión de Liga de Básquetbol</h1>
+  <p>Sistema web para la administración de equipos, jugadores y partidos de una liga de básquetbol</p>
+</div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+## 📋 Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Gestión de Liga de Básquetbol** es una aplicación web desarrollada en Laravel 13 que permite administrar una liga deportiva de básquetbol de forma eficiente. El sistema cuenta con autenticación de usuarios, gestión completa de equipos y jugadores, programación de partidos con registro de marcadores y una tabla de clasificación automática que calcula las posiciones según los resultados registrados.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 Objetivo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Brindar una herramienta digital que facilite la administración de una liga de básquetbol, permitiendo registrar y gestionar equipos, jugadores y partidos, así como generar automáticamente la tabla de clasificación en función de los resultados de los encuentros deportivos.
 
-## Learning Laravel
+## ✨ Funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Autenticación de usuarios** — Registro, inicio de sesión, recuperación de contraseña y verificación de correo electrónico.
+- **Dashboard** — Panel principal con resumen visual de equipos, jugadores, partidos y clasificación.
+- **CRUD de Equipos** — Registrar, listar, editar y eliminar equipos (nombre, ciudad, entrenador).
+- **CRUD de Jugadores** — Registrar, listar, editar y eliminar jugadores asociados a un equipo (nombre, número de camiseta, posición, altura, fecha de nacimiento).
+- **CRUD de Partidos** — Programar, editar y eliminar partidos con equipos local y visitante, fecha, marcador y estado (programado, jugado, cancelado).
+- **Tabla de Clasificación Automática** — Visualización pública de la tabla de posiciones con cálculos automáticos (2 puntos por victoria, 1 punto por derrota).
+- **Perfil de Usuario** — Editar perfil, cambiar contraseña y eliminar cuenta.
+- **Diseño Responsive** — Interfaz adaptable a dispositivos móviles y de escritorio.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Tecnologías
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+| Tecnología | Versión |
+|---|---|
+| [Laravel](https://laravel.com/) | 13.8 |
+| [PHP](https://www.php.net/) | 8.4 |
+| [MySQL](https://www.mysql.com/) | — |
+| [Laravel Breeze](https://laravel.com/docs/starter-kits) | 2.4 (Blade) |
+| [Tailwind CSS](https://tailwindcss.com/) | 3.x (CDN) |
+| [Font Awesome](https://fontawesome.com/) | 6.5 |
+| [Vite](https://vitejs.dev/) | 8.x |
+| [Alpine.js](https://alpinejs.dev/) | 3.4 |
+| [Axios](https://axios-http.com/) | 1.16 |
 
-## Agentic Development
+## 📋 Requisitos Previos
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- PHP >= 8.3
+- Composer
+- MySQL
+- Node.js >= 18
+- NPM
+- Extensión `pdo_mysql` habilitada en PHP
+
+## 🚀 Instalación
 
 ```bash
-composer require laravel/boost --dev
+# 1. Clonar el repositorio
+git clone https://github.com/jamih130402/gestion-liga-basquetbol.git
+cd gestion-liga-basquetbol
 
-php artisan boost:install
+# 2. Instalar dependencias de PHP
+composer install
+
+# 3. Instalar dependencias de frontend
+npm install
+
+# 4. Copiar archivo de entorno y generar clave
+cp .env.example .env
+php artisan key:generate
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## 🔧 Configuración del archivo `.env`
 
-## Contributing
+Edita el archivo `.env` con los datos de tu base de datos:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gestion_liga_basquetbol
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+## 🗄️ Configuración de Base de Datos
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# Crear la base de datos en MySQL
+mysql -u root -p -e "CREATE DATABASE gestion_liga_basquetbol;"
 
-## Security Vulnerabilities
+# Ejecutar migraciones
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## ▶️ Ejecución del Proyecto
 
-## License
+```bash
+# Iniciar servidor de desarrollo de Laravel
+php artisan serve
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# En otra terminal, compilar assets de frontend (modo desarrollo)
+npm run dev
+```
+
+Luego ingresa a `http://localhost:8000` en tu navegador.
+
+### Comandos adicionales
+
+```bash
+# Compilar assets para producción
+npm run build
+
+# Ejecutar seeders (población inicial)
+php artisan db:seed
+
+# Limpiar caché de configuración
+php artisan config:clear
+```
+
+## 📁 Estructura del Proyecto
+
+```
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/               # Controladores de autenticación (Breeze)
+│   │   │   ├── TeamController.php   # CRUD de equipos
+│   │   │   ├── PlayerController.php # CRUD de jugadores
+│   │   │   ├── GameController.php   # CRUD de partidos
+│   │   │   ├── StandingsController.php  # Tabla de clasificación
+│   │   │   ├── ProfileController.php   # Gestión de perfil
+│   │   │   └── Controller.php
+│   ├── Models/
+│   │   ├── User.php
+│   │   ├── Team.php                 # Relación: hasMany Player, hasMany Game
+│   │   ├── Player.php               # Relación: belongsTo Team
+│   │   └── Game.php                 # Relación: belongsTo Team (home/away)
+│   └── Providers/
+├── config/                          # Configuraciones de Laravel
+├── database/
+│   ├── migrations/                  # Migraciones de tablas
+│   │   ├── ...create_users_table.php
+│   │   ├── ...create_cache_table.php
+│   │   ├── ...create_jobs_table.php
+│   │   ├── ...create_teams_table.php
+│   │   ├── ...create_players_table.php
+│   │   └── ...create_matches_table.php
+│   └── seeders/
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+│       ├── layouts/                 # Layout app, guest, navigation
+│       ├── components/              # Componentes Blade reutilizables
+│       ├── auth/                    # Vistas de autenticación
+│       ├── teams/                   # Vistas del CRUD de equipos
+│       ├── players/                 # Vistas del CRUD de jugadores
+│       ├── games/                   # Vistas del CRUD de partidos
+│       ├── standings/               # Vista de clasificación
+│       ├── profile/                 # Vista de perfil
+│       ├── dashboard.blade.php
+│       └── welcome.blade.php
+├── routes/
+│   ├── web.php                      # Rutas principales
+│   └── auth.php                     # Rutas de autenticación
+├── vendor/                          # Dependencias de Composer
+├── .env.example
+├── composer.json
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
+```
+
+## 🖼️ Capturas de Pantalla
+
+> *Aquí puedes agregar capturas de pantalla del sistema:*
+> - Pantalla de inicio / Dashboard
+> - Listado de equipos
+> - Listado de jugadores
+> - Calendario de partidos
+> - Tabla de clasificación
+> - Formularios de creación/edición
+
+## 🔮 Posibles Mejoras Futuras
+
+- Agregar roles y permisos (admin, editor, visitante).
+- Estadísticas avanzadas por jugador y equipo.
+- Subida de logos e imágenes de jugadores.
+- Historial de temporadas.
+- Exportación de reportes en PDF/Excel.
+- Calendario visual de partidos.
+- Notificaciones por correo electrónico.
+- API REST para consumo externo.
+- Pruebas automatizadas (PHPUnit).
+
+## 👥 Integrantes
+
+- **Herminia Ortiz Pachacute**
+- **Dante Nayhua Huaman**
+- **Huarayo Leon Ruben Jamyl**
+
+## 📄 Licencia
+
+Este proyecto es de uso académico y está bajo la licencia [MIT](https://opensource.org/licenses/MIT).
